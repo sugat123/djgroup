@@ -1,0 +1,70 @@
+@media screen and (min-width :1401px) and (max-width:2200px) {}
+
+@media screen and (min-width: 1201px) and (max-width:1400px) {}
+
+@media screen and (min-width: 992px) and (max-width:1200px) {
+	.team-info {
+		padding: 0px 36px;
+		padding-bottom: 124px;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width:991px) {
+	.service-box {
+		margin-bottom: 20px;
+	}
+	.why-content {
+		width: 77%;
+		padding-top: 35px;
+	}
+	.box-content {
+		padding: 0;
+	}
+}
+
+@media screen and (min-width: 480px) and (max-width:767px) {
+	.service-box {
+		margin-bottom: 20px;
+	}
+	.why-content {
+		width: 80%;
+	}
+	.box-content {
+		padding: 0;
+	}
+	.mix .img-responsive {
+		width: 100%;
+	}
+	.ft-left p {
+		text-align: center;
+	}
+	.ft-right p {
+		text-align: center;
+		float: none;
+	}
+	.footer-part {
+		border-bottom: none;
+	}
+}
+
+@media screen and (min-width: 340px) and (max-width:479px) {
+	.service-box {
+		margin-bottom: 20px;
+	}
+	.why-content {
+		width: 100%;
+	}
+	.box-content {
+		padding: 0;
+	}
+	.ft-left p {
+		text-align: center;
+	}
+	.ft-right p {
+		text-align: center;
+		float: none;
+	}
+	.footer-part {
+		border-bottom: none;
+	}
+}

@@ -1,0 +1,377 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{% block title %} DJ Group {% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Asul|Rokkitt&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/cubeportfolio.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/team.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/service.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/portfolio.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+</head>
+
+<body>
+	<header>
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="ht-left">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<ul class="pull-left top-contact">
+								{% for setting in settings %}
+								<li><i class="far fa-envelope"></i><a href="mailto:{{ setting.email }}">
+										{{ setting.email }}</a></li>
+								<li><i class="fas fa-phone"></i>{{ setting.number }}</li>
+							</ul>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header-bottom">
+			<div class="container">
+				{% for setting in settings %}
+				<div class="logo"><a href="{% url 'djgroup:index' %}"><img src="/media/{{ setting.logo }}"></a></div>
+				{% endfor %}
+				<nav>
+					<ul>
+						<li><a href="{% url 'djgroup:index' %}">Home</a></li>
+						<li><a href="{% url 'djgroup:about' %}">About</a></li>
+						<li class="sub-menu"><a href="{% url 'djgroup:service' %}">Services</a>
+							<!-- <ul>
+								<li><a href="">Service1</a></li>
+								<li><a href="">Service2</a></li>
+							</ul> -->
+						</li>
+						<li><a href="{% url 'djgroup:team' %}">Team</a></li>
+						<li><a href="{% url 'djgroup:portfolio' %}">Portfolio</a>
+						</li>
+						<li><a href="{% url 'djgroup:contact' %}">Contact</a></li>
+					</ul>
+				</nav>
+				<div class="menu-toggle"><i class="fas fa-bars"></i></div>
+			</div>
+		</div>
+	</header>
+
+	{% block content %}
+	{% for banner in banners %}
+	<div class="slide-text" style="background-image: url('/media/{{ banner.index }}');">
+		{% endfor %}
+		<div class="container">
+			<h1 class="cd-headline letters type">
+				<span>We are</span>
+				<span class="cd-words-wrapper">
+					<b class="is-visible">DJ Group of Company</b>
+					<b>Awesome</b>
+					<b>Creative</b>
+				</span>
+			</h1>
+			<p>We bring dreams into reality</p>
+		</div>
+	</div>
+
+	<section class="about-us wow fadeInUp" data-wow-duration="2s" data-wow-delay="2s">
+		<!-- <h3>About Us</h3> -->
+		{% for about in abouts %}
+		<p>{{ about.description }}</p>
+		{% endfor %}
+	</section>
+
+	<section class="service wow fadeInUp" data-wow-offset="3" data-wow-iteration="1">
+		<h3>Our Services</h3>
+		<div class="service-line"></div>
+		<p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</p>
+		<br>
+		<div class="container">
+			<div class="row">
+				{% for service_type in service_types %}
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="service-box">
+						<div class="service-icon"><i class="{{ service_type.icon }}"></i></div>
+						<div class="service-title">{{ service_type.name }}</div>
+						<div class="service-text">{{ service_type.description }}</div>
+					</div>
+				</div>
+				{% endfor %}
+
+			</div>
+		</div>
+	</section>
+
+	<section class="why-us">
+		<div class="container">
+			<div class="why-content">
+				<h3 class="why-title">Why we are best for you</h3>
+				{% for about in abouts %}
+				<div class="why-text">{{ about.best_for }}</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<section class="project">
+		<div class="container content-md">
+			<div class="text-center">
+				<h2>Our portfolio</h2>
+				<div class="portfolio-line"></div>
+				<p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,ipsum quia dolor sit amet,
+					consectetur, adipisci velit Neque porro quisquam</p>
+			</div>
+
+			<div class="sorting-block">
+				<div class="content-xs">
+					<ul class="sorting-nav sorting-nav-v1 text-center">
+						<li class="filter" data-filter="all">All</li>
+						{% for portfolio in portfolios %}
+						<li class="filter" data-filter="{{ portfolio.service_type.name }}">
+							{{ portfolio.service_type.name }}
+						</li>
+						{% endfor %}
+
+					</ul>
+				</div>
+
+				<ul class="row sorting-grid">
+					{% for portfolio in portfolios %}
+					<li class="col-md-3 col-sm-6 col-xs-12 mix {{ portfolio.service_type.name }}">
+						<a href="#">
+							<img class="img-responsive" src="/media/{{ portfolio.image }}" alt="">
+							<span class="sorting-cover">
+								<span>{{ portfolio.title }}</span>
+								<p>{{ portfolio.service_type.name }}</p>
+							</span>
+						</a>
+					</li>
+					{% endfor %}
+
+				</ul>
+
+				<div class="clearfix"></div>
+			</div>
+
+
+		</div>
+	</section>
+
+	<section class="testimonial">
+		<div class="container">
+			<div class="row">
+				<h2 class="client-title">What our clients say about us</h2>
+				<div class="col-md-12">
+					<div class="carousel slide" data-ride="carousel" id="quote-carousel">
+						<!-- Carousel Slides / Quotes -->
+						<div class="carousel-inner text-center">
+							<!-- Quote 1 -->
+							{% for testimonial in testimonials %}
+							{% if forloop.counter == 1 %}
+							<div class="item active">
+								<blockquote>
+									<div class="row">
+										<div class="col-sm-8 col-sm-offset-2">
+											<p>{{testimonial.description}} </p>
+											<small>{{testimonial.name}}</small>
+										</div>
+									</div>
+								</blockquote>
+							</div>
+							{% else %}
+							<div class="item">
+								<blockquote>
+									<div class="row">
+										<div class="col-sm-8 col-sm-offset-2">
+											<p>{{testimonial.description}} </p>
+											<small>{{testimonial.name}}</small>
+										</div>
+									</div>
+								</blockquote>
+							</div>
+							{% endif %}
+							{% endfor %}
+							<!-- Quote 2 -->
+							<!-- <div class="item">
+								<blockquote>
+									<div class="row">
+										<div class="col-sm-8 col-sm-offset-2">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+												tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+												veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
+											<small>Client 2</small>
+										</div>
+									</div>
+								</blockquote>
+							</div> -->
+							<!-- Quote 3 -->
+							<!-- <div class="item">
+								<blockquote>
+									<div class="row">
+										<div class="col-sm-8 col-sm-offset-2">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+												tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+												veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip </p>
+											<small>Client 3</small>
+										</div>
+									</div>
+								</blockquote>
+							</div> -->
+						</div>
+						<!-- Bottom Carousel Indicators -->
+						<ol class="carousel-indicators">
+							<li data-target="#quote-carousel" data-slide-to="0" class="active"><img
+									class="img-responsive " src="{% static 'img/testimonial.png' %}" alt="">
+							</li>
+							<li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive"
+									src="{% static 'img/testimonial.png' %}" alt="">
+							</li>
+							<li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive"
+									src="{% static 'img/testimonial.png' %}" alt="">
+							</li>
+						</ol>
+
+						<!-- Carousel Buttons Next/Prev -->
+						<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i
+								class="fa fa-chevron-left"></i></a>
+						<a data-slide="next" href="#quote-carousel" class="right carousel-control"><i
+								class="fa fa-chevron-right"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{% endblock %}
+
+	<footer>
+		<div class="footer-upper">
+			<div class="container">
+				<div class="footer-part">
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 footer-div">
+						<div class="footer-block information">
+							<h4 class="title">About</h4>
+							{% for about in abouts %}
+							<p>{{ about.description }}</p>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 footer-div">
+						<div class="footer-block information">
+							<h4 class="title">Useful links</h4>
+							<ul class="list">
+								<li class="ft-item"><a href="{% url 'djgroup:about' %}">About us</a></li>
+								<li class="ft-item"><a href="{% url 'djgroup:portfolio' %}">Our portfolio</a></li>
+								<li class="ft-item"><a href="{% url 'djgroup:team' %}">Our team</a></li>
+								<li class="ft-item"><a href="{% url 'djgroup:contact' %}">Contact</a></li>
+								<li class="ft-item"><a href="{% url 'djgroup:service' %}">Our services</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 footer-div">
+						<div class="footer-block information">
+							<h4 class="title">Contact</h4>
+							<ul class="list">
+								{% for setting in settings %}
+								<li class="ft-item"><i class="fa fa-home" aria-hidden="true"></i>{{setting.address}}
+								</li>
+								<li class="ft-item"><i class="fa fa-envelope" aria-hidden="true"></i>
+									<a href="mailto:{{ setting.email }}">
+										{{ setting.email }}</a>
+								</li>
+								<li class="ft-item"><i class="fa fa-phone" aria-hidden="true"></i>{{setting.number}}
+								</li>
+								<li class="ft-item"><i class="fa fa-globe" aria-hidden="true"></i><a
+										href="">{{setting.website}}</a></li>
+							</ul>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 footer-div">
+						<div class="footer-term">
+							<h4 class="title">Follow us</h4>
+							<ul class="networks">
+								<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href=""><i class="fab fa-twitter"></i></a></li>
+								<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							<div class="ft-left">
+								<p>© 2019 DJ Group of Company</p>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							<div class="ft-right">
+								<p>Designed By: <a href="">DJ group</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+	<script src="{% static 'js/wow.js' %}"></script>
+	<script src="{% static 'js/jquery.cubeportfolio.min.js' %}"></script>
+	<script src="{% static 'js/cube-portfolio-lightbox.js' %}"></script>
+	<script src="{% static 'js/animated-headline.js' %}"></script>
+	<script src="{% static 'js/portfolio.js' %}"></script>
+	<script src="{% static 'js/jquery.mixitup.min.js' %}"></script>
+
+	<script>
+		new WOW().init();
+	</script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$('.menu-toggle').click(function () {
+				$('nav').toggleClass('active')
+			})
+			PortfolioPage.init();
+		});
+
+	</script>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function () {
+			PortfolioPage.init();
+		});	
+	</script>
+
+
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(window).scroll(function () {
+				if ($(window).scrollTop() >= 50) {
+					$('.header-bottom').addClass('header-fixed');
+				}
+				else {
+					$('.header-bottom').removeClass('header-fixed');
+				}
+			});
+		})
+	</script>
+</body>
+
+</html>

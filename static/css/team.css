@@ -1,0 +1,114 @@
+.team-banner {
+    /* background-image: url(../img/team.jpg); */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}
+
+.col-md-6.col-md-offset-3 {
+    margin-top: 189px;
+    text-align: center;
+    color: #fff;
+}
+
+.col-md-6.col-md-offset-3 h1 {
+    font-size: 55px;
+}
+
+.col-md-6.col-md-offset-3 h4 {
+    font-size: 30px;
+}
+
+.color-green {
+    color: #006034;
+}
+
+/*team*/
+
+.team-img img {
+    width: 100%;
+}
+
+.team-left, .teams-left {
+    padding-left: 0;
+    padding-right: 0;
+    background: #fbf8f8;
+}
+
+.team-right, .teams-right {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.team-all {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.team {
+    margin-top: 70px;
+}
+
+.team-info {
+    padding: 0 90px;
+    padding-top: 90px;
+    padding-bottom: 109px;
+}
+
+.team-left:before {
+    right: -25px;
+    border-width: 20px 0 20px 25px;
+    border-color: #5a4d4d00 transparent transparent #fff;
+    width: 0;
+    height: 0;
+    top: 50%;
+    margin-top: -25px;
+    z-index: 2;
+    content: " ";
+    position: absolute;
+    border-style: solid;
+}
+
+.social-icons li {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin-right: 20px;
+    background: #0981EF;
+    padding: 10px;
+}
+
+.social-icons {
+    margin-top: 18px;
+}
+
+.teams-left:before {
+    left: -25px;
+    border-width: 20px 25px 20px 0;
+    border-color: transparent #fff transparent transparent;
+    width: 0;
+    height: 0;
+    top: 50%;
+    margin-top: -25px;
+    z-index: 2;
+    content: " ";
+    position: absolute;
+    border-style: solid;
+}
+
+.social-icons li a:hover {
+    color: #fff;
+}
+
+@media (max-width: 991px) {
+    .team-left:before, .teams-left:before {
+        top: auto;
+        left: 70px;
+        bottom: -25px;
+        border-width: 25px 20px 0 20px;
+        border-color: #fff transparent transparent transparent;
+        left: 70px;
+        bottom: -25px;
+    }
+}

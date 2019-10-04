@@ -1,0 +1,122 @@
+{% extends 'djgroup/index.html' %}
+{% load static %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block content %}
+
+{% for banner in banners %}
+
+<section class="portfolio-banner" style="background-image: url('/media/{{ banner.portfolio }}');">
+    {% endfor %}
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Our portfolio</h1>
+            <h4>We bring <span class="color-green">dreams</span> into reality</h4>
+        </div>
+    </div>
+</section>
+
+<section class="portfolio">
+    <div class="container content">
+        <!-- Portfolio Sorting Blocks -->
+        <div class="sorting-block">
+            <div class="content-xs">
+                <ul class="sorting-nav sorting-nav-v1 text-center">
+                    <li class="filter" data-filter="all">All</li>
+                    {% for portfolio in portfolios %}
+                    <li class="filter" data-filter="{{ portfolio.service_type.name }}">{{ portfolio.service_type.name }}
+                    </li>
+                    {% endfor %}
+                    <!-- <li class="filter" data-filter="software">Software</li>
+                    <li class="filter" data-filter="website">Website</li>
+                    <li class="filter" data-filter="app">Mobile app</li> -->
+                </ul>
+            </div>
+
+            <ul class="row sorting-grid">
+                {% for portfolio in portfolios %}
+                <li class="col-md-3 col-sm-6 col-xs-12 mix {{ portfolio.service_type.name }}">
+                    <a href="#">
+                        <img class="img-responsive" src="/media/{{ portfolio.image }}" alt="">
+                        <span class="sorting-cover">
+                            <span>{{ portfolio.title }}</span>
+                            <p>{{ portfolio.service_type.name }}</p>
+                        </span>
+                    </a>
+                </li>
+                {% endfor %}
+                <!-- <li class="col-md-3 col-sm-6 col-xs-12 mix website" data-cat="3">
+                    <a href="#">
+                        <img class="img-responsive" src="{% static 'img/portfolio/web1.jpg' %}" alt="">
+                        <span class="sorting-cover">
+                            <span>Web page</span>
+                            <p>Software</p>
+                        </span>
+                    </a>
+                </li>
+                <li class="col-md-3 col-sm-6 col-xs-12 mix software" data-cat="2">
+                    <a href="#">
+                        <img class="img-responsive" src="{% static 'img/portfolio/web2.jpg' %}" alt="">
+                        <span class="sorting-cover">
+                            <span>Web page</span>
+                            <p>Software</p>
+                        </span>
+                    </a>
+                </li>
+                <li class="col-md-3 col-sm-6 col-xs-12 mix app" data-cat="3">
+                    <a href="#">
+                        <img class="img-responsive" src="{% static 'img/portfolio/web3.jpg' %}" alt="">
+                        <span class="sorting-cover">
+                            <span>Web page</span>
+                            <p>Software</p>
+                        </span>
+                    </a>
+                </li>
+                <li class="col-md-3 col-sm-6 col-xs-12 mix hardware" data-cat="2">
+                    <a href="#">
+                        <img class="img-responsive" src="{% static 'img/portfolio/mobile.jpg' %}" alt="">
+                        <span class="sorting-cover">
+                            <span>Web page</span>
+                            <p>Software</p>
+                        </span>
+                    </a>
+                </li>
+                <li class="col-md-3 col-sm-6 col-xs-12 mix software" data-cat="1">
+                    <a href="#">
+                        <img class="img-responsive" src="{% static 'img/portfolio/software1.jpg' %}" alt="">
+                        <span class="sorting-cover">
+                            <span>Web page</span>
+                            <p>Software</p>
+                        </span>
+                    </a>
+                </li>
+                <li class="col-md-3 col-sm-6 col-xs-12 mix app" data-cat="2">
+                    <a href="#">
+                        <img class="img-responsive" src="{% static 'img/portfolio/mobile1.jpg' %}" alt="">
+                        <span class="sorting-cover">
+                            <span>Web page</span>
+                            <p>Software</p>
+                        </span>
+                    </a>
+                </li>
+                <li class="col-md-3 col-sm-6 col-xs-12 mix website" data-cat="1">
+                    <a href="#">
+                        <img class="img-responsive" src="{% static 'img/portfolio/software.jpg' %}" alt="">
+                        <span class="sorting-cover">
+                            <span>Web page</span>
+                            <p>Software</p>
+                        </span>
+                    </a>
+                </li> -->
+            </ul>
+
+            <div class="clearfix"></div>
+        </div>
+        <!-- End Portfolio Sorting Blocks -->
+    </div>
+</section>
+
+
+
+{% endblock %}

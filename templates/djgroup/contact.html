@@ -1,0 +1,89 @@
+{% extends 'djgroup/index.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block title %} Contact Us{% endblock %}
+
+{% block content %}
+{% for banner in banners %}
+<section class="contact-banner" style="background-image: url('/media/{{ banner.contact }}');">
+    {% endfor %}
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Contact us</h1>
+            <h4>We bring <span class="color-green">dreams</span> into reality</h4>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="contact-detail">
+    <div class="container">
+        <div class="text-center" id="alert_message">
+            {% bootstrap_messages %}
+        </div>
+        <div class="contact">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 contact-left">
+                    <h4>Contact us</h4>
+                    <p>dapibus quis sapien id phar etra iaculis estdapibus quis sapien id phar etra iaculis estdapibus
+                        quis sapien id phar etra iaculis est</p>
+                    {% for setting in settings %}
+                    <ul class="contact-info">
+                        <li><i class="fa fa-home" aria-hidden="true"></i>DJ group of company </li>
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i>{{ setting.email }}</li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i>{{ setting.number }}</li>
+                    </ul>
+                    {% endfor %}
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 contact-right">
+                    <h4>Send your feedback</h4>
+
+                    {% if form.errors %}
+                    <span style="color: red;">{{form.errors}}</span>
+                    {% endif %}
+                    <form action="{% url 'djgroup:contact' %}" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-0">
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Full name*"
+                                    required>
+                            </div>
+                            <div class="col-md-6 col-md-offset-0">
+                                <input type="text" name="email" id="email" class="form-control" placeholder="Email*"
+                                    required>
+                            </div>
+                            <div class="col-md-12 col-md-offset-0">
+                                <input type="text" name="subject" id="subject" class="form-control"
+                                    placeholder="Subject*" required>
+                            </div>
+                            <div class="col-md-12 col-md-offset-0">
+                                <textarea rows="6" name="message" id="message" class="form-control"
+                                    placeholder="Message" required></textarea>
+                            </div>
+                        </div>
+                        <p><button type="submit" class="btn-u">Send Message</button></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="map">
+
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14133.189959106627!2d85.3355668232668!3d27.677198877423333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19f2804a02bf%3A0x85468199859b2d8d!2sKoteshwor%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1568280004808!5m2!1sen!2snp"
+        width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+</div>
+
+<script type="text/javascript">
+    window.setTimeout(function () {
+        $("#alert_message").fadeTo(500, 0).slideUp(500, function () {
+            $(this).remove();
+        });
+    }, 3500);
+</script>
+
+{% endblock %}
