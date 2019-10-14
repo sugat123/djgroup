@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4pz+ana*7$s7hiyje-_3zojx@fpui$mka2zvzfm35$g2@&+2+q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    'djgroupcompany.ap-south-1.elasticbeanstalk.com', 'www.djgroupcompany.com.np']
+    '', '', '127.0.0.1']
 
 
 # Application definition
