@@ -26,7 +26,7 @@ SECRET_KEY = '4pz+ana*7$s7hiyje-_3zojx@fpui$mka2zvzfm35$g2@&+2+q'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'djgroupcompany.us-west-2.elasticbeanstalk.com', '127.0.0.1']
+    'djgroupcompany.us-west-2.elasticbeanstalk.com', '127.0.0.1', 'djgroupcompany.com.np', 'www.djgroupcompany.com.np']
 
 
 # Application definition
