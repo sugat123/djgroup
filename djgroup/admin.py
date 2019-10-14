@@ -1,5 +1,8 @@
 from django.contrib import admin
 from djgroup.models import *
+from django.contrib.admin.models import LogEntry
+
+LogEntry.objects.all().delete()
 
 
 @admin.register(SiteSetting)
