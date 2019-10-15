@@ -34,7 +34,7 @@
 								<li><i class="far fa-envelope"></i><a href="mailto:{{ setting.email }}">
 										{{ setting.email }}</a></li>
 								<li><i class="fas fa-phone"></i>{{ setting.number }}</li>
-								<li><i class="fas fa-phone"></i>{{ setting.number2 }}</li>
+
 							</ul>
 							{% endfor %}
 						</div>
@@ -273,7 +273,8 @@
 									<a href="mailto:{{ setting.email }}">
 										{{ setting.email }}</a>
 								</li>
-								<li class="ft-item"><i class="fa fa-phone" aria-hidden="true"></i>{{setting.number}}
+								<li class="ft-item"><i class="fa fa-phone" aria-hidden="true"></i>{{setting.number}},
+									&nbsp; {{ setting.number2 }}
 								</li>
 								<li class="ft-item"><i class="fa fa-globe" aria-hidden="true"></i><a
 										href="">{{setting.website}}</a></li>
