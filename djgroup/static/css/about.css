@@ -115,3 +115,6 @@ section.target {
 .bg-image img {
     width: 100%;
 }
+.mission-text {
+    height: 210px;
+}

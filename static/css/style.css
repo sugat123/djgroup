@@ -752,6 +752,15 @@ ul.networks  {
     text-align: center;
     padding: 7px
 }
+.networks li:nth-child(4) {  
+  color: #fff;
+  background-color: #0077B5;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 5px;
+}
 li a{
 	color: #fff;
 }
@@ -793,7 +802,7 @@ button.button-1.newsletter-subscribe-button {
     color: #fff;
 }
 .ft-item i {
-    padding-right: 10px;
+    padding-right: 4px;
 }
 .ft-right p {
     float: right;
