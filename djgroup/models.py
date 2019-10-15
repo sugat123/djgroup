@@ -5,10 +5,15 @@ from django.utils.safestring import mark_safe
 class SiteSetting(models.Model):
     logo = models.ImageField(upload_to='sitesetting')
     number = models.IntegerField()
+    number2 = models.IntegerField(null = True)
     email = models.EmailField()
     address = models.CharField(max_length=100)
     website = models.URLField()
     map_link = models.URLField()
+    facebook_link = models.URLField(null = True)
+    twitter_link = models.URLField(null = True)
+    google_link = models.URLField(null = True)
+    linkedin_link = models.URLField(null = True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
