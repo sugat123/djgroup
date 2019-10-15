@@ -308,7 +308,9 @@
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 							<div class="ft-right">
-								<p>Designed By: <a href="">DJ group</a></p>
+								{% for setting in settings %}
+								<p>Designed By: <a href="{{ setting.website }}">DJ group</a></p>
+								{% endfor %}
 							</div>
 						</div>
 					</div>
