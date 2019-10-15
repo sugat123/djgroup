@@ -7,7 +7,8 @@ LogEntry.objects.all().delete()
 
 @admin.register(SiteSetting)
 class SiteSettingAdmin(admin.ModelAdmin):
-    list_display = ('number', 'email', 'address', 'website', 'image_tag')
+    list_display = ('number', 'number2', 'email', 'address', 'website', 'facebook_link',
+                    'twitter_link', 'google_link', 'linkedin_link', 'image_tag')
 
 
 @admin.register(Banner)

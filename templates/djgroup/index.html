@@ -34,6 +34,7 @@
 								<li><i class="far fa-envelope"></i><a href="mailto:{{ setting.email }}">
 										{{ setting.email }}</a></li>
 								<li><i class="fas fa-phone"></i>{{ setting.number }}</li>
+								<li><i class="fas fa-phone"></i>{{ setting.number2 }}</li>
 							</ul>
 							{% endfor %}
 						</div>
@@ -284,9 +285,12 @@
 						<div class="footer-term">
 							<h4 class="title">Follow us</h4>
 							<ul class="networks">
-								<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-								<li><a href=""><i class="fab fa-twitter"></i></a></li>
-								<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+								{% for setting in settings %}
+								<li><a href="{{ setting.facebook_link }}"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="{{ setting.twitter_link }}"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="{{ setting.google_link }}"><i class="fab fa-google-plus-g"></i></a></li>
+								<li><a href="{{ setting.linkedin_link }}"><i class="fab fa-linkedin-in"></i></a></li>
+								{% endfor %}
 							</ul>
 						</div>
 
