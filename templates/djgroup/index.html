@@ -267,17 +267,19 @@
 							<h4 class="title">Contact</h4>
 							<ul class="list">
 								{% for setting in settings %}
-								<li class="ft-item"><i class="fa fa-home" aria-hidden="true"></i>{{setting.address}}
+								<li class="ft-item"><i class="fa fa-home" aria-hidden="true"></i>
+									{{setting.address}}
 								</li>
 								<li class="ft-item"><i class="fa fa-envelope" aria-hidden="true"></i>
 									<a href="mailto:{{ setting.email }}">
 										{{ setting.email }}</a>
 								</li>
-								<li class="ft-item"><i class="fa fa-phone" aria-hidden="true"></i>{{setting.number}},
+								<li class="ft-item"><i class="fa fa-phone" aria-hidden="true"></i>
+									{{setting.number}},
 									&nbsp; {{ setting.number2 }}
 								</li>
-								<li class="ft-item"><i class="fa fa-globe" aria-hidden="true"></i><a
-										href="">{{setting.website}}</a></li>
+								<li class="ft-item"><i class="fa fa-globe" aria-hidden="true"></i><a href="">
+										{{ setting.website }}</a></li>
 							</ul>
 							{% endfor %}
 						</div>
