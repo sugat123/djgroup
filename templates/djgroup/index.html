@@ -18,6 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/team.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/service.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/portfolio.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
 </head>
@@ -74,7 +75,7 @@
 	{% block content %}
 	{% for banner in banners %}
 	<div class="slide-text" style="background-image: url('/media/{{ banner.index }}');">
-		{% endfor %}
+
 		<div class="container">
 			<h1 class="cd-headline letters type">
 				<span>We are</span>
@@ -84,9 +85,10 @@
 					<b>Creative</b>
 				</span>
 			</h1>
-			<p>We bring dreams into reality</p>
+			<p>{{ banner.index_text }}</p>
 		</div>
 	</div>
+	{% endfor %}
 
 	<section class="about-us wow fadeInUp" data-wow-duration="2s" data-wow-delay="2s">
 		<!-- <h3>About Us</h3> -->
@@ -98,7 +100,7 @@
 	<section class="service wow fadeInUp" data-wow-offset="3" data-wow-iteration="1">
 		<h3>Our Services</h3>
 		<div class="service-line"></div>
-		<p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</p>
+
 		<br>
 		<div class="container">
 			<div class="row">
@@ -132,8 +134,7 @@
 			<div class="text-center">
 				<h2>Our portfolio</h2>
 				<div class="portfolio-line"></div>
-				<p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,ipsum quia dolor sit amet,
-					consectetur, adipisci velit Neque porro quisquam</p>
+
 			</div>
 
 			<div class="sorting-block">

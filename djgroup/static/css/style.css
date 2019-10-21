@@ -626,6 +626,10 @@ section.service h3, section.service p {
   font-weight: bold;
 }
 
+.service-text {
+  height: 200px;
+}
+
 .service-all {
   margin-top: 50px;
 }

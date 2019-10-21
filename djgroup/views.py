@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from djgroup.models import *
 from djgroup.forms import ContactForm
 from django.contrib import messages
@@ -44,6 +44,12 @@ def portfolio(request):
     return render(request, 'djgroup/portfolio.html', context)
 
 
+def portfolio_detail(request, id):
+    portfolio = get_object_or_404(Portfolio, id=id)
+
+    return render(request, 'djgroup/detail.html', {'portfolio': portfolio})
+
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST or None)
@@ -60,5 +66,5 @@ def contact(request):
 
 
 def handler404(request, exception):
-    
+
     return render(request, 'djgroup/404.html', {})

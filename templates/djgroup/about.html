@@ -6,14 +6,15 @@
 {% block content %}
 {% for banner in banners %}
 <section class="about-banner" style="background-image: url('/media/{{ banner.about }}');">
-    {% endfor %}
+   
     <div class="container">
         <div class="col-md-6 col-md-offset-3">
             <h1>About us</h1>
-            <h4>We bring <span class="color-green">dreams</span> into reality</h4>
+            <h4>{{ banner.about_text }}</h4>
         </div>
     </div>
 </section>
+{% endfor %}
 {% for about in abouts %}
 <section class="about">
     <div class="about-text">
@@ -75,20 +76,8 @@
                             <p>{{ about.why_choose_us }}</p>
                         </div>
                     </div>
-                    <div class="bg-text">
-                        <div class="bg-text-left"><i class="fas fa-user-edit"></i></div>
-                        <div class="bg-text-right">
-                            <h4>What we do</h4>
-                            <p>{{ about.what_we_do }}</p>
-                        </div>
-                    </div>
-                    <div class="bg-text">
-                        <div class="bg-text-left"><i class="fas fa-user-check"></i></div>
-                        <div class="bg-text-right">
-                            <h4>How we work</h4>
-                            <p>{{ about.how_we_work }}</p>
-                        </div>
-                    </div>
+                    
+                    
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="bg-image">

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from djgroup.models import *
 from django.contrib.admin.models import LogEntry
+from django.utils.safestring import mark_safe
 
 LogEntry.objects.all().delete()
 
@@ -13,14 +14,14 @@ class SiteSettingAdmin(admin.ModelAdmin):
 
 @admin.register(Banner)
 class BannerAdmin(admin.ModelAdmin):
-    list_display = ('index_tag', 'about_tag', 'services_tag',
-                    'portfolio_tag', 'team_tag', 'contact_tag',)
+    list_display = ('index_tag', 'index_text', 'about_tag', 'about_text', 'services_tag', 'services_text',
+                    'portfolio_tag', 'portfolio_text', 'team_tag', 'team_text', 'contact_tag', 'contact_text',)
 
 
 @admin.register(AboutUs)
 class AboutUsAdmin(admin.ModelAdmin):
     list_display = ('description', 'mission', 'vision',
-                    'strategy', 'goal', 'who_we_are', 'why_choose_us', 'what_we_do', 'how_we_work', 'best_for')
+                    'strategy', 'goal', 'who_we_are', 'why_choose_us', 'best_for')
 
 
 @admin.register(ServiceDesc)
@@ -47,10 +48,14 @@ class TeamAdmin(admin.ModelAdmin):
 
 @admin.register(Portfolio)
 class PortfolioAdmin(admin.ModelAdmin):
-    list_display = ('service_type', 'title', 'image_tag')
+    list_display = ('service_type', 'title', 'image_tag', 'description_safe')
     ordering = ('title',)
     search_fields = ('title', 'service_type__name')
     list_filter = ('service_type__name', 'created')
+
+    def description_safe(self, obj):
+        return mark_safe(obj.description)
+    description_safe.short_description = 'Description'
 
 
 @admin.register(Testimonials)

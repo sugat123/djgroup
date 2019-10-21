@@ -1,19 +1,20 @@
 from django.db import models
 from django.utils.safestring import mark_safe
+from tinymce.models import HTMLField
 
 
 class SiteSetting(models.Model):
     logo = models.ImageField(upload_to='sitesetting')
     number = models.IntegerField()
-    number2 = models.IntegerField(null = True)
+    number2 = models.IntegerField(null=True)
     email = models.EmailField()
     address = models.CharField(max_length=100)
     website = models.URLField()
     map_link = models.URLField()
-    facebook_link = models.URLField(null = True)
-    twitter_link = models.URLField(null = True)
-    google_link = models.URLField(null = True)
-    linkedin_link = models.URLField(null = True)
+    facebook_link = models.URLField(null=True)
+    twitter_link = models.URLField(null=True)
+    google_link = models.URLField(null=True)
+    linkedin_link = models.URLField(null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -30,11 +31,17 @@ class SiteSetting(models.Model):
 
 class Banner(models.Model):
     index = models.ImageField(upload_to='banners')
+    index_text = models.TextField(null=True)
     about = models.ImageField(upload_to='banners')
+    about_text = models.TextField(null=True)
     services = models.ImageField(upload_to='banners')
+    services_text = models.TextField(null=True)
     team = models.ImageField(upload_to='banners')
+    team_text = models.TextField(null=True)
     portfolio = models.ImageField(upload_to='banners')
+    portfolio_text = models.TextField(null=True)
     contact = models.ImageField(upload_to='banners')
+    contact_text = models.TextField(null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -92,8 +99,7 @@ class AboutUs(models.Model):
     goal = models.TextField()
     who_we_are = models.TextField()
     why_choose_us = models.TextField()
-    what_we_do = models.TextField()
-    how_we_work = models.TextField()
+    how_we_work = models.ImageField(upload_to='about', default=None)
     best_for = models.TextField()
     bg_image = models.ImageField(upload_to='about', default=None)
     created = models.DateTimeField(auto_now_add=True)
@@ -146,6 +152,7 @@ class ServiceDesc(models.Model):
 class Portfolio(models.Model):
     service_type = models.ForeignKey(ServiceType, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
+    description = HTMLField(null=True)
     image = models.ImageField(upload_to='portfolio')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -159,6 +166,7 @@ class Portfolio(models.Model):
         else:
             return 'No Image Found'
     image_tag.short_description = 'Image'
+
 
 
 class Testimonials(models.Model):

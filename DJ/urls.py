@@ -24,7 +24,8 @@ from djgroup import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('djgroup.urls'))
+    path('', include('djgroup.urls')),
+    path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'djgroup.views.handler404'
