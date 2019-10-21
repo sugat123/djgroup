@@ -1,0 +1,52 @@
+.service-banner {
+    background-image: url(../images/bhadadar.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}
+
+.col-md-6.col-md-offset-3 {
+    margin-top: 189px;
+    text-align: center;
+    color: #fff;
+}
+
+.col-md-6.col-md-offset-3 h1 {
+    font-size: 40px;
+}
+
+.col-md-6.col-md-offset-3 h4 {
+    font-size: 30px;
+}
+
+.color-green {
+    color: #006034;
+}
+
+.description-left img {
+    width: 100%;
+}
+
+.service-description {
+    margin: 50px 0px;
+}
+
+.description-right h2 {
+    font-weight: bold;
+    color: #005F32;
+}
+
+p.bold {
+    font-weight: 600;
+    font-size: 18px;
+    color: #005F34;
+    margin-top: 20px;
+}
+
+.description-right ul li {
+    list-style: square;
+    margin-left: 40px;
+    padding-bottom: 15px;
+}

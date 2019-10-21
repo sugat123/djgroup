@@ -77,13 +77,13 @@ section.process h3, section.process p {
     margin-top: 0;
 }
 
+.services-right {
+    height: 200px;
+}
+
 .services-left i {
     font-size: 20px;
     color: #006034;
-}
-
-.services-right {
-    margin-left: 15px;
 }
 
 .services-all {
