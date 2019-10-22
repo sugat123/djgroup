@@ -6,7 +6,7 @@
 {% block content %}
 {% for banner in banners %}
 <section class="about-banner" style="background-image: url('/media/{{ banner.about }}');">
-   
+
     <div class="container">
         <div class="col-md-6 col-md-offset-3">
             <h1>About us</h1>
@@ -76,8 +76,8 @@
                             <p>{{ about.why_choose_us }}</p>
                         </div>
                     </div>
-                    
-                    
+
+
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="bg-image">
@@ -87,6 +87,11 @@
             </div>
         </div>
     </div>
+</section>
+
+<section class="work-block">
+    <h3>Our Work Flow</h3>
+    <img src="{% static 'img/how.jpg' %}">
 </section>
 
 {% endfor %}

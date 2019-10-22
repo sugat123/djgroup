@@ -20,6 +20,7 @@
 	.box-content {
 		padding: 0;
 	}
+	.bg-img {height: auto;}
 }
 
 @media screen and (min-width: 480px) and (max-width:767px) {
@@ -45,6 +46,7 @@
 	.footer-part {
 		border-bottom: none;
 	}
+	.bg-img {height: auto;}
 }
 
 @media screen and (min-width: 340px) and (max-width:479px) {
@@ -67,4 +69,5 @@
 	.footer-part {
 		border-bottom: none;
 	}
+	.bg-img {height: auto;}
 }
