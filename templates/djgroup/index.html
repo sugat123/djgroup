@@ -153,7 +153,7 @@
 				<ul class="row sorting-grid">
 					{% for portfolio in portfolios %}
 					<li class="col-md-3 col-sm-6 col-xs-12 mix {{ portfolio.service_type.name }}">
-						<a href="#">
+						<a href="{% url 'djgroup:portfolio-detail' portfolio.id %}">
 							<img class="img-responsive" src="/media/{{ portfolio.image }}" alt="">
 							<span class="sorting-cover">
 								<span>{{ portfolio.title }}</span>
