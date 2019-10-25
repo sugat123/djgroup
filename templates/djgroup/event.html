@@ -6,7 +6,7 @@
 {% block content %}
 
 {% for banner in banners %}
-<section class="event-banner" style="background-image: url('/media/{{ banner.events }}');">
+<section class="event-banner" style="background-image: url('{{ banner.events.url }}');">
 	<div class="container">
 		<div class="col-md-6 col-md-offset-3">
 			<h1>Events</h1>
@@ -22,7 +22,7 @@
 		{% for event in events %}
 		<div class="event">
 			<figure class="event-img">
-				<img src="/media/{{ event.image }}">
+				<img src="{{ event.image.url }}">
 			</figure>
 			<div class="event-manage">
 				<div class="event-detail">

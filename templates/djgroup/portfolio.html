@@ -7,7 +7,7 @@
 
 {% for banner in banners %}
 
-<section class="portfolio-banner" style="background-image: url('/media/{{ banner.portfolio }}');">
+<section class="portfolio-banner" style="background-image: url('{{ banner.portfolio.url }}');">
 
     <div class="container">
         <div class="col-md-6 col-md-offset-3">
@@ -39,7 +39,7 @@
                 {% for portfolio in portfolios %}
                 <li class="col-md-3 col-sm-6 col-xs-12 mix {{ portfolio.service_type.name }}">
                     <a href="{% url 'djgroup:portfolio-detail' portfolio.id %}">
-                        <img class="img-responsive" src="/media/{{ portfolio.image }}" alt="">
+                        <img class="img-responsive" src="{{ portfolio.image.url }}" alt="">
                         <span class="sorting-cover">
                             <span>{{ portfolio.title }}</span>
                             <p>{{ portfolio.service_type.name }}</p>

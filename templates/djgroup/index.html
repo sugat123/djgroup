@@ -54,7 +54,7 @@
 		<div class="header-bottom">
 			<div class="container">
 				{% for setting in settings %}
-				<div class="logo"><a href="{% url 'djgroup:index' %}"><img src="/media/{{ setting.logo }}"></a></div>
+				<div class="logo"><a href="{% url 'djgroup:index' %}"><img src="{{ setting.logo.url }}"></a></div>
 				{% endfor %}
 				<nav>
 					<ul>
@@ -83,7 +83,7 @@
 
 	{% block content %}
 	{% for banner in banners %}
-	<div class="slide-text" style="background-image: url('/media/{{ banner.index }}');">
+	<div class="slide-text" style="background-image: url('{{ banner.index.url }}');">
 
 		<div class="container">
 			<h1 class="cd-headline letters type">
@@ -163,7 +163,7 @@
 					{% for portfolio in portfolios %}
 					<li class="col-md-3 col-sm-6 col-xs-12 mix {{ portfolio.service_type.name }}">
 						<a href="{% url 'djgroup:portfolio-detail' portfolio.id %}">
-							<img class="img-responsive" src="/media/{{ portfolio.image }}" alt="">
+							<img class="img-responsive" src="{{ portfolio.image.url }}" alt="">
 							<span class="sorting-cover">
 								<span>{{ portfolio.title }}</span>
 								<p>{{ portfolio.service_type.name }}</p>

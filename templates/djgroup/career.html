@@ -6,7 +6,7 @@
 {% block content %}
 
 {% for banner in banners %}
-<section class="career-banner" style="background-image: url('/media/{{ banner.career }}');">
+<section class="career-banner" style="background-image: url('{{ banner.career.url }}');">
 	<div class="container">
 		<div class="col-md-6 col-md-offset-3">
 			<h1>Career</h1>
