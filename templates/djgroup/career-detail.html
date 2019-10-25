@@ -1,0 +1,45 @@
+{% extends 'djgroup/index.html' %}
+{% load static %}
+
+{% block title %}Career Detail{% endblock %}
+
+{% block content %}
+
+{% for banner in banners %}
+<section class="careers-banner" style="background-image: url('/media/{{ banner.career }}');">
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3 block">
+			<h1>Career Detail</h1>
+		</div>
+	</div>
+</section>
+{% endfor %}
+
+<section class="career-all">
+	<div class="container">
+		<h2>{{ career.title }}</h2>
+		<div class="job-description">
+			<h3>Job-Overview</h3>
+			<p>{{ career.overview|safe }}</p>
+		</div>
+		<div class="job-description">
+			<h3>Job-Description</h3>
+			<p>{{ career.description|safe }}</p>
+		</div>
+		<div class="job-description">
+			<h3>Job-Requirements</h3>
+			<p>{{ career.requirements|safe }}</p>
+		</div>
+		<div class="job-description">
+			<h3>Required Skills</h3>
+			<p>{{ career.skills|safe }}</p>
+		</div>
+		<div class="job-description">
+			<h3>Applying Procedure</h3>
+			<p>Interested Candidates must send their updated CV at email: <a
+					href="mailto:groupdjcompany@gmail.com">groupdjcompany@gmail.com</a></p>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

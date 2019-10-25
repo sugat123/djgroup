@@ -1,0 +1,40 @@
+{% extends 'djgroup/index.html' %}
+{% load static %}
+
+{% block title %}Event detail{% endblock %}
+
+{% block content %}
+
+{% for banner in banners %}
+<section class="event-banner" style="background-image: url('/media/{{ banner.events }}');">
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<h1>Event Detail</h1>
+
+		</div>
+	</div>
+</section>
+{% endfor %}
+
+<section class="service-description">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<div class="description-left">
+					<img src="/media/{{ event.image }}">
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<div class="description-right">
+					<h2>{{ event.title }}</h2>
+					<span>{{ event.date }}</span>
+					<p>{{ event.description|safe }}</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

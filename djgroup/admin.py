@@ -66,6 +66,43 @@ class TestimonialsAdmin(admin.ModelAdmin):
     list_filter = ('created',)
 
 
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    list_display = ('title', 'date', 'image_tag', 'description_safe')
+    ordering = ('title',)
+    search_fields = ('title', 'date')
+    list_filter = ('date',)
+
+    def description_safe(self, obj):
+        return mark_safe(obj.description)
+    description_safe.short_description = 'Description'
+
+
+@admin.register(Career)
+class CareerAdmin(admin.ModelAdmin):
+    list_display = ('title', 'overview_safe', 'description_safe',
+                    'requirements_safe', 'skills_safe',)
+    ordering = ('title',)
+    search_fields = ('title', 'created')
+    list_filter = ('created',)
+
+    def overview_safe(self, obj):
+        return mark_safe(obj.overview)
+    overview_safe.short_description = 'Job Overview'
+
+    def description_safe(self, obj):
+        return mark_safe(obj.description)
+    description_safe.short_description = 'Job Description'
+
+    def requirements_safe(self, obj):
+        return mark_safe(obj.requirements)
+    requirements_safe.short_description = 'Job Requirements'
+
+    def skills_safe(self, obj):
+        return mark_safe(obj.skills)
+    skills_safe.short_description = 'Skills required'
+
+
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'subject', 'message')

@@ -40,6 +40,8 @@ class Banner(models.Model):
     team_text = models.TextField(null=True)
     portfolio = models.ImageField(upload_to='banners')
     portfolio_text = models.TextField(null=True)
+    events = models.ImageField(upload_to='banners', null=True)
+    career = models.ImageField(upload_to='banners', null=True)
     contact = models.ImageField(upload_to='banners')
     contact_text = models.TextField(null=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -168,7 +170,6 @@ class Portfolio(models.Model):
     image_tag.short_description = 'Image'
 
 
-
 class Testimonials(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -189,3 +190,35 @@ class Contact(models.Model):
 
     class Meta:
         verbose_name_plural = 'Messages submitted from contact form'
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=100)
+    date = models.DateField()
+    image = models.ImageField(upload_to='events')
+    description = HTMLField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name_plural = 'Events'
+
+    def image_tag(self):
+        if self.image:
+            return mark_safe('<img src="%s" style="width: 80px; height:80px;" />' % self.image.url)
+        else:
+            return 'No Image Found'
+    image_tag.short_description = 'Events Image'
+
+
+class Career(models.Model):
+    title = models.CharField(max_length=100)
+    overview = HTMLField()
+    description = HTMLField()
+    requirements = HTMLField()
+    skills = HTMLField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name_plural = 'Careers'

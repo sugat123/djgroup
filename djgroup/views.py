@@ -50,6 +50,31 @@ def portfolio_detail(request, id):
     return render(request, 'djgroup/detail.html', {'portfolio': portfolio})
 
 
+def events(request):
+    events = Event.objects.all().order_by('-created')
+    context = {'events': events}
+
+    return render(request, 'djgroup/event.html', context)
+
+
+def events_detail(request, id):
+    event = get_object_or_404(Event, id=id)
+
+    return render(request, 'djgroup/event-detail.html', {'event': event})
+
+
+def career(request):
+    careers = Career.objects.all().order_by('-created')
+    context = {'careers': careers}
+    return render(request, 'djgroup/career.html', context)
+
+
+def career_detail(request, id):
+    career = get_object_or_404(Career, id=id)
+
+    return render(request, 'djgroup/career-detail.html', {'career': career})
+
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST or None)

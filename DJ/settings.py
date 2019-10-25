@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4pz+ana*7$s7hiyje-_3zojx@fpui$mka2zvzfm35$g2@&+2+q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'djgroupcompany.us-west-2.elasticbeanstalk.com', '127.0.0.1', 'djgroupcompany.com.np', 'www.djgroupcompany.com.np']
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'djgroup',
     'bootstrap3',
     'tinymce',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -77,13 +78,31 @@ WSGI_APPLICATION = 'DJ.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if 'RDS_HOSTNAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'djgroup',
+            'USER': 'root',
+            'PASSWORD': '',
+            'HOST': '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock',
+            'PORT': '',
+            'OPTIONS': {
+                    'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            },
+        }
+    }
 
 
 # Password validation
@@ -127,5 +146,24 @@ STATIC_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+AWS_ACCESS_KEY_ID = 'AKIATE25KQNUY2GWWHJ5'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'djgroup'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'media'
+
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
+# STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'DJ.storage_backends.MediaStorage'
+MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+MEDIA_ROOT = MEDIA_URL

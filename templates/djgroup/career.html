@@ -1,0 +1,47 @@
+{% extends 'djgroup/index.html' %}
+{% load static %}
+
+{% block title %}Career{% endblock %}
+
+{% block content %}
+
+{% for banner in banners %}
+<section class="career-banner" style="background-image: url('/media/{{ banner.career }}');">
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<h1>Career</h1>
+		</div>
+	</div>
+</section>
+{% endfor %}
+
+<section class="vacancy">
+	<div class="container">
+		<div class="vacancy-detail">
+			<h3>Current Vacancy</h3>
+			<p>Mail your CV at: <a href="mailto:groupdjcompany@gmail.com">groupdjcompany@gmail.com</a></p>
+		</div>
+
+		<div class="vacancy-description">
+			{% for career in careers %}
+			<div class="vacancy-block">
+				<div class="block-one">
+					<a href="{% url 'djgroup:career-detail' career.id %}">
+						<h3>{{ career.title }}</h3>
+					</a>
+				</div>
+				<div class="block-two">
+					<a href="{% url 'djgroup:career-detail' career.id %}">Apply</a>
+				</div>
+			</div>
+			{% endfor %}
+
+		</div>
+	</div>
+</section>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,96 @@
+.event-banner {
+    background-image: url(../images/bhadadar.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}
+
+.col-md-6.col-md-offset-3 {
+    margin-top: 189px;
+    text-align: center;
+    color: #fff;
+}
+
+.col-md-6.col-md-offset-3 h1 {
+    font-size: 55px;
+}
+
+.col-md-6.col-md-offset-3 h4 {
+    font-size: 30px;
+}
+
+.color-green {
+    color: #006034;
+}
+
+.event-all {
+    margin-top: 50px;
+}
+
+.event {
+    width: 100%;
+    line-height: 22px;
+    display: flex;
+    align-items: flex-start;
+    margin: 30px 0;
+}
+
+.event-all h3 {
+    text-align: center;
+    font-weight: bold;
+    color: #005F34;
+    /*margin-bottom: 30px;*/
+}
+
+.event img {
+    width: 100%;
+}
+
+.event-img {
+    max-width: 480px;
+    width: 100%;
+    height: auto;
+}
+
+.event-manage {
+    max-width: 680px !important;
+    width: 100% !important;
+    background-color: transparent;
+    position: relative;
+    right: 0px;
+    margin-top: 100px;
+    overflow-x: hidden;
+    margin-left: -40px;
+}
+
+.event-detail {
+    background: #fdfcfc;
+    padding: 40px 0 40px 40px;
+    width: auto;
+    height: auto;
+}
+
+.event-detail p i {
+    color: #005F34;
+}
+
+.event-detail h1 a {
+    color: #005F34;
+}
+
+@media screen and (max-width: 980px) {
+    .event-img {
+        max-width: 1120px;
+    }
+    .event-manage {
+        margin-top: -40px;
+    }
+    .event {
+        flex-direction: column;
+    }
+    .event-detail {
+        padding: 40px 40px 40px 40px;
+    }
+}
