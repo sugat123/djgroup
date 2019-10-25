@@ -17,7 +17,8 @@ def index(request):
 
 def about(request):
     abouts = AboutUs.objects.all().order_by('-created')[0:1]
-    context = {'abouts': abouts}
+    teams = Team.objects.all().order_by('-created')
+    context = {'abouts': abouts, 'teams': teams}
 
     return render(request, 'djgroup/about.html', context)
 
@@ -29,13 +30,6 @@ def service(request):
                'service_types': service_type}
 
     return render(request, 'djgroup/service.html', context)
-
-
-def team(request):
-    teams = Team.objects.all().order_by('-created')
-    context = {'teams': teams}
-
-    return render(request, 'djgroup/team.html', context)
 
 
 def portfolio(request):
