@@ -15,7 +15,7 @@ class SiteSettingAdmin(admin.ModelAdmin):
 @admin.register(Banner)
 class BannerAdmin(admin.ModelAdmin):
     list_display = ('index_tag', 'index_text', 'about_tag', 'about_text', 'services_tag', 'services_text',
-                    'portfolio_tag', 'portfolio_text', 'team_tag', 'team_text', 'contact_tag', 'contact_text',)
+                    'portfolio_tag', 'portfolio_text', 'contact_tag', 'contact_text',)
 
 
 @admin.register(AboutUs)

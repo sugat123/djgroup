@@ -30,19 +30,17 @@ class SiteSetting(models.Model):
 
 
 class Banner(models.Model):
-    index = models.ImageField(upload_to='banners')
+    index = models.ImageField(upload_to='banners', null=True)
     index_text = models.TextField(null=True)
-    about = models.ImageField(upload_to='banners')
+    about = models.ImageField(upload_to='banners', null=True)
     about_text = models.TextField(null=True)
-    services = models.ImageField(upload_to='banners')
+    services = models.ImageField(upload_to='banners', null=True)
     services_text = models.TextField(null=True)
-    team = models.ImageField(upload_to='banners')
-    team_text = models.TextField(null=True)
-    portfolio = models.ImageField(upload_to='banners')
+    portfolio = models.ImageField(upload_to='banners', null=True)
     portfolio_text = models.TextField(null=True)
     events = models.ImageField(upload_to='banners', null=True)
     career = models.ImageField(upload_to='banners', null=True)
-    contact = models.ImageField(upload_to='banners')
+    contact = models.ImageField(upload_to='banners', null=True)
     contact_text = models.TextField(null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -70,13 +68,6 @@ class Banner(models.Model):
         else:
             return 'No Image Found'
     services_tag.short_description = 'Services Banner'
-
-    def team_tag(self):
-        if self.team:
-            return mark_safe('<img src="%s" style="width: 80px; height:80px;" />' % self.team.url)
-        else:
-            return 'No Image Found'
-    team_tag.short_description = 'Team Banner'
 
     def portfolio_tag(self):
         if self.portfolio:
