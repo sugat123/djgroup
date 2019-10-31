@@ -92,7 +92,7 @@ class AboutUs(models.Model):
     goal = models.TextField()
     who_we_are = models.TextField()
     why_choose_us = models.TextField()
-    how_we_work = models.ImageField(upload_to='about', default=None)
+    # how_we_work = models.ImageField(upload_to='about', default=None)
     best_for = models.TextField()
     bg_image = models.ImageField(upload_to='about', default=None)
     created = models.DateTimeField(auto_now_add=True)
