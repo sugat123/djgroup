@@ -5,8 +5,8 @@ from tinymce.models import HTMLField
 
 class SiteSetting(models.Model):
     logo = models.ImageField(upload_to='sitesetting')
-    number = models.IntegerField()
-    number2 = models.IntegerField(null=True)
+    number = models.CharField(max_length=15)
+    number2 = models.CharField(max_length=15)
     email = models.EmailField()
     address = models.CharField(max_length=100)
     website = models.URLField()
