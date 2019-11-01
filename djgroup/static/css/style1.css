@@ -76,6 +76,9 @@ section.team h3, section.team p {
 .team-v5 .team-img>img {
   width: 100%;
   margin-bottom: 20px;
+  object-fit: cover;
+  object-position: center; 
+  height: 263px;
 }
 
 /*Team Hover Gradient*/
