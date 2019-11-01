@@ -113,16 +113,20 @@ section.target {
 .bg-image img {
     width: 85%;
 }
+
 .mission-text {
-    height: 210px;
+    height: 110px;
 }
+
 .work-block img {
     width: 100%;
 }
+
 .work-block h3 {
     text-align: center;
     margin-bottom: 20px;
 }
+
 .work-block {
     margin-top: 50px;
 }
