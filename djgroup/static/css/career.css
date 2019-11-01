@@ -76,6 +76,12 @@
     margin-bottom: 30px;
 }
 
+.career-all h2 {
+    text-align: center;
+    color: #005F34;
+    font-weight: bolder;
+}
+
 .job-description ul li {
     list-style: circle;
     margin-left: 40px;
