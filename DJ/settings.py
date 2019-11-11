@@ -158,7 +158,7 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = 'media'
-AWS_DEFAULT_ACL = None
+
 
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, 'static'),
@@ -168,3 +168,4 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'DJ.storage_backends.MediaStorage'
 MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 MEDIA_ROOT = MEDIA_URL
+AWS_DEFAULT_ACL = None
