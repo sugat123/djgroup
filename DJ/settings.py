@@ -149,7 +149,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
+AWS_DEFAULT_ACL = None
 AWS_ACCESS_KEY_ID = 'AKIATE25KQNUY2GWWHJ5'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'djgroup'
@@ -168,4 +168,3 @@ AWS_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'DJ.storage_backends.MediaStorage'
 MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 MEDIA_ROOT = MEDIA_URL
-AWS_DEFAULT_ACL = None
