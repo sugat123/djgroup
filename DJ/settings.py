@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4pz+ana*7$s7hiyje-_3zojx@fpui$mka2zvzfm35$g2@&+2+q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'djgroupcompany.us-west-2.elasticbeanstalk.com', '127.0.0.1', 'djgroupcompany.com.np', 'www.djgroupcompany.com.np']
