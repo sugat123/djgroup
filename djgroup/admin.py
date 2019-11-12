@@ -5,7 +5,6 @@ from django.utils.safestring import mark_safe
 
 LogEntry.objects.all().delete()
 
-
 @admin.register(SiteSetting)
 class SiteSettingAdmin(admin.ModelAdmin):
     list_display = ('number', 'number2', 'email', 'address', 'website', 'facebook_link',
