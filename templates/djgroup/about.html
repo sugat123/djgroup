@@ -102,8 +102,11 @@
             {% for team in teams %}
             <div class="col-lg-3 col-sm-6 sm-margin-bottom-50">
                 <div class="team-img">
-                    
+                    {% if team.image %}
                     <img class="img-responsive" src="{{ team.image.url }}" alt="">
+                    {% else %}
+                    <img class="img-responsive" src="" alt="{{ team.name }}">
+                    {% endif %}
                     <div class="team-hover">
                         <ul class="list-inline team-social-v5">
                             <li><a href="{{ team.facebook_link }}"><i class="fab fa-facebook-f"></i></a></li>
