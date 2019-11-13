@@ -104,7 +104,7 @@ class AboutUs(models.Model):
 
 class Team(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='team', null=True, blank=True)
+    image = models.ImageField(upload_to='team')
     post = models.CharField(max_length=100)
     description = models.TextField()
     facebook_link = models.URLField()
